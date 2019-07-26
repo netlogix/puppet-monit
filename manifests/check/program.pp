@@ -21,6 +21,7 @@ define monit::check::program(
     'absent'
     ] $ensure             = present,
   String $group           = $name,
+  String $additional_content = "",
   Array[String] $alerts   = [],
   Array[String] $noalerts = [],
   Array[
@@ -49,6 +50,7 @@ define monit::check::program(
     priority => $priority,
     bundle   => $bundle,
     order    => $order,
+    additional_content => $additional_content,
   }
 }
 

@@ -22,6 +22,7 @@ define monit::check::directory(
     'absent'
     ] $ensure             = present,
   String $group           = $name,
+  String $additional_content = "",
   Array[String] $alerts   = [],
   Array[String] $noalerts = [],
   Array[
@@ -50,6 +51,7 @@ define monit::check::directory(
     priority => $priority,
     bundle   => $bundle,
     order    => $order,
+    additional_content => $additional_content,
   }
 }
 

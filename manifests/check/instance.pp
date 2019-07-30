@@ -53,7 +53,7 @@ define monit::check::instance(
 
   $tests_real = monit_validate_tests($type, $tests)
 	$template = template('monit/check/common.erb')
-  $content = inline_template("${template}${additional_content}")
+  $content = "${template}${additional_content}"
   concat::fragment { "${file}_${name}":
     target  => $file,
     content => "${header}${content}",

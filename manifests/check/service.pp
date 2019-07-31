@@ -82,13 +82,13 @@ define monit::check::service(
   }
 
   $defaults = {
-    'ensure'     => $ensure,
-    'priority'   => $priority,
-    'bundle'     => $bundle,
-    'group'      => $group,
-    'depends'    => $depends,
-    'alerts'     => $alerts,
-    'noalerts'   => $noalerts,
+    'ensure'              => $ensure,
+    'priority'            => $priority,
+    'bundle'              => $bundle,
+    'group'               => $group,
+    'depends'             => $depends,
+    'alerts'              => $alerts,
+    'noalerts'            => $noalerts,
     'additional_coontent' =>  $additional_content,
   }
 

@@ -28,18 +28,18 @@ define monit::check::process(
   Enum[
     'present',
     'absent'
-    ] $ensure             = present,
-  String $group           = $name,
-  String $additional_content = "",
-  Array[String] $alerts   = [],
-  Array[String] $noalerts = [],
+    ] $ensure                 = present,
+  String $group               = $name,
+  String $additional_content  = "",
+  Array[String] $alerts       = [],
+  Array[String] $noalerts     = [],
   Array[
     Hash[String, Variant[Array, Hash, Integer, String]]
-    ] $tests              = [],
-  Array[String] $depends  = [],
-  String $priority        = '20',
-  String $bundle          = $name,
-  Integer $order          = 0,
+    ] $tests                  = [],
+  Array[String] $depends      = [],
+  String $priority            = '20',
+  String $bundle              = $name,
+  Integer $order              = 0,
 
   # Check type specific.
   String $template                        = 'monit/check/process.erb',
@@ -69,19 +69,19 @@ define monit::check::process(
   }
 
   monit::check::instance { "${name}_instance":
-    ensure   => $ensure,
-    name     => $name,
-    type     => 'process',
-    header   => template($template),
-    group    => $group,
-    alerts   => $alerts,
-    noalerts => $noalerts,
-    tests    => $tests,
-    depends  => $depends,
-    priority => $priority,
-    bundle   => $bundle,
-    order    => $order,
-    additional_content => $additional_content,
+    ensure              => $ensure,
+    name                => $name,
+    type                => 'process',
+    header              => template($template),
+    group               => $group,
+    alerts              => $alerts,
+    noalerts            => $noalerts,
+    tests               => $tests,
+    depends             => $depends,
+    priority            => $priority,
+    bundle              => $bundle,
+    order               => $order,
+    additional_content  => $additional_content,
   }
 }
 

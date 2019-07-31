@@ -18,36 +18,36 @@ define monit::check::system(
   Enum[
     'present',
     'absent'
-    ] $ensure             = present,
-  String $group           = $name,
+    ] $ensure                = present,
+  String $group              = $name,
   String $additional_content = "",
-  Array[String] $alerts   = [],
-  Array[String] $noalerts = [],
+  Array[String] $alerts      = [],
+  Array[String] $noalerts    = [],
   Array[
     Hash[String, String]
-    ] $tests              = [],
-  Array[String] $depends  = [],
-  String $priority        = '20',
-  String $bundle          = $name,
-  Integer $order          = 0,
+    ] $tests                 = [],
+  Array[String] $depends     = [],
+  String $priority           = '20',
+  String $bundle             = $name,
+  Integer $order             = 0,
 
   # Check type specific.
   String $template  = 'monit/check/system.erb',
 ) {
 
   monit::check::instance { "${name}_instance":
-    ensure   => $ensure,
-    name     => $name,
-    type     => 'system',
-    header   => template($template),
-    group    => $group,
-    alerts   => $alerts,
-    noalerts => $noalerts,
-    tests    => $tests,
-    depends  => $depends,
-    priority => $priority,
-    bundle   => $bundle,
-    order    => $order,
+    ensure             => $ensure,
+    name               => $name,
+    type               => 'system',
+    header             => template($template),
+    group              => $group,
+    alerts             => $alerts,
+    noalerts           => $noalerts,
+    tests              => $tests,
+    depends            => $depends,
+    priority           => $priority,
+    bundle             => $bundle,
+    order              => $order,
     additional_content => $additional_content,
   }
 }

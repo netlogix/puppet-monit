@@ -25,7 +25,7 @@ define monit::check::instance(
   String $type,
   String $header,
   String $group,
-	String $additional_content = "",
+  String $additional_content = "",
   Array[String] $alerts,
   Array[String] $noalerts,
   Array[
@@ -52,7 +52,7 @@ define monit::check::instance(
   }
 
   $tests_real = monit_validate_tests($type, $tests)
-	$template = template('monit/check/common.erb')
+  $template = template('monit/check/common.erb')
   $content = "${template}${additional_content}"
   concat::fragment { "${file}_${name}":
     target  => $file,

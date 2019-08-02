@@ -46,13 +46,13 @@ define monit::check(
 ) {
 
   $defaults = {
-    'name'       => $name,
-    'ensure'     => $ensure,
-    'group'      => $group,
-    'tests'      => $tests,
-    'priority'   => $priority,
-    'bundle'     => $bundle,
-    'order'      => $order,
+    'name'               => $name,
+    'ensure'             => $ensure,
+    'group'              => $group,
+    'tests'              => $tests,
+    'priority'           => $priority,
+    'bundle'             => $bundle,
+    'order'              => $order,
     'additional_content' => $additional_content,
   }
   $params = merge($config, $defaults)

@@ -24,6 +24,7 @@ define monit::check(
     Variant[Array, Hash, Integer, String]
     ] $config                  = {},
   String $group                = $name,
+  String $additional_content   = "",
   Array[
     Hash[String, Variant[Array, Hash, Integer, String]]
     ] $tests                   = [],
@@ -45,13 +46,14 @@ define monit::check(
 ) {
 
   $defaults = {
-    'name'       => $name,
-    'ensure'     => $ensure,
-    'group'      => $group,
-    'tests'      => $tests,
-    'priority'   => $priority,
-    'bundle'     => $bundle,
-    'order'      => $order,
+    'name'               => $name,
+    'ensure'             => $ensure,
+    'group'              => $group,
+    'tests'              => $tests,
+    'priority'           => $priority,
+    'bundle'             => $bundle,
+    'order'              => $order,
+    'additional_content' => $additional_content,
   }
   $params = merge($config, $defaults)
   ensure_resource("monit::check::${type}", "${name}_${type}", $params)
